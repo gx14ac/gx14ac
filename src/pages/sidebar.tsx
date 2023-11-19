@@ -9,13 +9,13 @@ export default function Sidebar() {
         <div>
             <Image
                 src="/assets/artwork.png"
-                className="pt-10 pl-3 w-auto"
+                className="pt-12 pl-7 w-auto"
                 alt="logo"
                 sizes="20vw"
                 width={0}
                 height={0}
             />
-            < div className="grid gap-1 place-items-start h-20 pl-8 pt-10" >
+            <div className="grid gap-1 place-items-start h-20 pl-16 pt-24" >
                 <a href="https://runetale.com" className={`${fira.className} text-black text-lg hover:text-blue-600`} onClick={() => router.push(routes.about)}>
                     About
                 </a>
@@ -28,7 +28,7 @@ export default function Sidebar() {
                 <a href="https://runetale.com" className={`${fira.className} "text-black text-lg hover:text-blue-600`} onClick={() => router.push(routes.artwork)}>
                     Artwork
                 </a>
-            </div >
-        </div >
+            </div>
+        </div>
     )
 }
