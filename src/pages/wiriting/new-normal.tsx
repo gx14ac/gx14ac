@@ -1,8 +1,8 @@
-import Header from "./header"
+import Header from "@pages/header"
 import { fira } from "@utils/font"
 import Link from "next/link"
 
-export default function Writing() {
+export default function NewNormal() {
     return (
         <Header>
             <div className="grid grid-flow-row auto-rows-max gap-2">
