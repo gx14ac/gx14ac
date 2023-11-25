@@ -4,4 +4,5 @@ export const routes = {
     writing: "/writing",
     misc: "/misc",
     artwork: "/artwork",
+    improvisation: "/improvisation",
 }
