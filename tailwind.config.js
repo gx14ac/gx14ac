@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'hack': "url('/assets/test.gif')"
+      },
       fontFamily: {
         FiraCode: ['Fira Code', 'monospace'],
       }
