@@ -1,4 +1,6 @@
 module.exports = {
+  pageExtensions: ["js", "ts", "tsx", "mdx"],
+  reactStrictMode: false,
   webpack(config, options) {
     const { isServer } = options;
     config.module.rules.push({
