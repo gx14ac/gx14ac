@@ -1,5 +1,6 @@
 module.exports = {
   pageExtensions: ["js", "ts", "tsx", "mdx"],
+  pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
   reactStrictMode: false,
   webpack(config, options) {
     const { isServer } = options;
