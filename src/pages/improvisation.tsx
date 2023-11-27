@@ -3,7 +3,6 @@ import Header from "./header"
 import { useRef, useState } from "react";
 import MyFile from '@assets/imp25112023.mp3';
 
-
 export default function Improvisation() {
     const audioRef = useRef<HTMLVideoElement>()
     const [isPlaying, setPlaying] = useState(false)
