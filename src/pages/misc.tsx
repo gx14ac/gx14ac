@@ -5,7 +5,9 @@ import Link from "next/link"
 export default function Misc() {
     return (
         <Header>
-            <p>miscellaneous summary</p>
+            <p className={`${fira.className}`}>
+                <p>miscellaneous summary</p>
+            </p>
             <div className="grid grid-flow-row auto-rows-max gap-2">
                 <div className="grid grid-cols-2 items-center justify-between gap-20">
                     <Link href="/misc/new-normal" className={`${fira.className} text-lg hover:text-gray-500 underline underline-offset-8`} onClick={() => { }}>

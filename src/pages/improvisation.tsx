@@ -20,7 +20,7 @@ export default function Improvisation() {
 
     return (
         <Header>
-            <p className={`${fira.className} text-xs`}>
+            <p className={`${fira.className}`}>
                 improvisation<br />
             </p>
             <div className="grid grid-flow-row auto-rows-max gap-5">
