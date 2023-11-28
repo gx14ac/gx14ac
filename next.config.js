@@ -1,5 +1,5 @@
 module.exports = {
-  pageExtensions: ['index.tsx', 'index.ts', 'index.jsx', 'index.js'],
+  // pageExtensions: ['index.tsx', 'index.ts', 'index.jsx', 'index.js'],
   reactStrictMode: false,
   webpack(config, options) {
     const { isServer } = options;
