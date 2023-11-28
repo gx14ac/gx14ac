@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <Header>
       <p className={`${fira.className} text-xs`}>
-        development and CEO of runetale,<br />
+        development of runetale,<br />
         interest include wasm, compilier, kernel, security, and<br />
         p2p mesh network.<br />
         i often paint and also play bass, guitar, and digital-synthesizer,<br />
