@@ -1,6 +1,5 @@
 import Image from "next/image"
 import { useRouter } from "next/router"
-import { routes } from "./routes"
 import { fira } from "@utils/font"
 import Link from "next/link"
 
@@ -20,19 +19,19 @@ export default function Header({ children }: ComponentProps) {
                     width={100}
                     height={100}
                 />
-                <Link href="/" className={`${fira.className} mt-4 ml-5 hover:text-blue-600`} onClick={() => router.push(routes.home)}>
+                <Link href="/" className={`${fira.className} mt-4 ml-5 hover:text-blue-600`} onClick={() => router.push('/')}>
                     About
                 </Link>
-                <Link href="/writing" className={`${fira.className} ml-5 hover:text-blue-600`} onClick={() => router.push(routes.writing)}>
+                <Link href="/writing" className={`${fira.className} ml-5 hover:text-blue-600`} onClick={() => router.push('/writing')}>
                     Writing
                 </Link>
-                <Link href="/misc" className={`${fira.className} ml-5 hover:text-blue-600`} onClick={() => router.push(routes.misc)}>
+                <Link href="/misc" className={`${fira.className} ml-5 hover:text-blue-600`} onClick={() => router.push('/misc')}>
                     Misc
                 </Link>
-                <Link href="/artwork" className={`${fira.className} ml-5 hover:text-blue-600`} onClick={() => router.push(routes.artwork)}>
+                <Link href="/artwork" className={`${fira.className} ml-5 hover:text-blue-600`} onClick={() => router.push('/artwork')}>
                     Artwork
                 </Link>
-                <Link href="/improvisation" className={`${fira.className} ml-5 hover:text-blue-600`} onClick={() => router.push(routes.improvisation)}>
+                <Link href="/improvisation" className={`${fira.className} ml-5 hover:text-blue-600`} onClick={() => router.push('improvisation')}>
                     Improvisation
                 </Link>
             </div>
