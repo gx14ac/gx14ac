@@ -48,7 +48,6 @@ export default function Header({ children }: ComponentProps) {
                 width={280}
                 height={280}
             />
-
         </div >
     )
 }

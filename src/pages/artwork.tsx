@@ -1,5 +1,7 @@
 import Header from "./header"
+import Image from "next/image"
 import { fira } from "@utils/font"
+import Link from "next/link"
 
 export default function Artwork() {
     return (
@@ -7,6 +9,58 @@ export default function Artwork() {
             <p className={`${fira.className}`}>
                 artwork<br />
             </p>
+            <div className="flex justify-center items-center">
+                <div className="grid gap-16 mt-16">
+                    <div>
+                        <Image
+                            src="/assets/singularity.jpg"
+                            className=""
+                            alt="logo"
+                            width={800}
+                            height={800}
+                        />
+                        <p className={`${fira.className} mt-2 text-md text-gray-400  underline underline-offset-8`}>
+                            title: 'singularity', oct 19, 2023<br />
+                        </p>
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/under-the-bridge.jpg"
+                            className=""
+                            alt="logo"
+                            width={800}
+                            height={800}
+                        />
+                        <p className={`${fira.className} mt-2 text-md text-gray-400  underline underline-offset-8`}>
+                            title: 'under-the-bridge', mar 13, 2023<br />
+                        </p>
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/work-in-progress.jpg"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700}
+                        />
+                        <p className={`${fira.className} mt-2 text-md text-gray-400  underline underline-offset-8`}>
+                            title: 'work-in-pr0gress', nov 25, 2023<br />
+                        </p>
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/shadow-tree.jpg"
+                            className=""
+                            alt="logo"
+                            width={800}
+                            height={800}
+                        />
+                        <p className={`${fira.className} mt-2 text-md text-gray-400  underline underline-offset-8`}>
+                            title: 'shadow-tree', nov 25, 2023<br />
+                        </p>
+                    </div>
+                </div>
+            </div >
         </Header>
     )
 }
