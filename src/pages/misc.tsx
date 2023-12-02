@@ -6,7 +6,7 @@ export default function Misc() {
     return (
         <Header>
             <p className={`${fira.className}`}>
-                <p>miscellaneous summary</p>
+                <p>misc</p>
             </p>
             <div className="grid grid-flow-row auto-rows-max gap-2">
                 <div className="grid grid-cols-2 items-center justify-between gap-20">

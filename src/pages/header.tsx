@@ -45,10 +45,11 @@ export default function Header({ children }: ComponentProps) {
                 src="/assets/about.gif"
                 alt="logo"
                 className="mr-16 fixed top-14 right-0 invisible lg:visible"
-                width={300}
-                height={300}
+                width={280}
+                height={280}
             />
-        </div>
+
+        </div >
     )
 }
 
