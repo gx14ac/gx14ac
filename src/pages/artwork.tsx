@@ -32,7 +32,7 @@ export default function Artwork() {
                             height={800}
                         />
                         <p className={`${fira.className} mt-2 text-md text-gray-400  underline underline-offset-8`}>
-                            title: 'under-the-bridge', mar 13, 2023<br />
+                            title: 'under-the-bridge', oct 13, 2023<br />
                         </p>
                     </div>
                     <div>
@@ -44,7 +44,7 @@ export default function Artwork() {
                             height={700}
                         />
                         <p className={`${fira.className} mt-2 text-md text-gray-400  underline underline-offset-8`}>
-                            title: 'work-in-pr0gress', nov 25, 2023<br />
+                            title: 'work-in-pr0gress', aug 25, 2023<br />
                         </p>
                     </div>
                     <div>
@@ -56,7 +56,7 @@ export default function Artwork() {
                             height={800}
                         />
                         <p className={`${fira.className} mt-2 text-md text-gray-400  underline underline-offset-8`}>
-                            title: 'shadow-tree', nov 25, 2023<br />
+                            title: 'shadow-tree', jul 9, 2023<br />
                         </p>
                     </div>
                 </div>
