@@ -1,7 +1,6 @@
 import Header from "./header"
 import Image from "next/image"
 import { fira } from "@utils/font"
-import Link from "next/link"
 
 export default function Artwork() {
     return (
