@@ -8,7 +8,10 @@ export default function Home() {
   return (
     <>
       <Header>
-        <p className={`${fira.className} text-sm`}>
+        <p className={`${fira.className} text-4xl mt-2`}>
+          gx14ac
+        </p>
+        <p className={`${fira.className} text-md`}>
           development of runetale,<br />
           interest include wasm, compilier, kernel, security, and<br />
           p2p mesh network.<br />

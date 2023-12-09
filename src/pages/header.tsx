@@ -10,8 +10,8 @@ type ComponentProps = {
 export default function Header({ children }: ComponentProps) {
     const router = useRouter()
     return (
-        <div className="flex justify-start items-start gap-40 mt-16 ml-32">
-            <div className="grid gap-2 mt-6">
+        <div className="md:flex md:justify-start md:items-start md:gap-40 md:mt-16 md:ml-32 sm:flex-row">
+            <div className="md:grid md:gap-2 md:mt-6">
                 <Image
                     src="/assets/artwork.png"
                     className=""
@@ -36,18 +36,8 @@ export default function Header({ children }: ComponentProps) {
                 </Link>
             </div>
             <div className="grid gap-10 mt-8">
-                <p className={`${fira.className} text-4xl mt-2`}>
-                    gx14ac
-                </p>
                 {children}
             </div>
-            <Image
-                src="/assets/about.gif"
-                alt="logo"
-                className="mr-16 fixed top-14 right-0 invisible lg:visible"
-                width={280}
-                height={280}
-            />
         </div >
     )
 }

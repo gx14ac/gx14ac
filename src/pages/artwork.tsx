@@ -6,9 +6,6 @@ import Link from "next/link"
 export default function Artwork() {
     return (
         <Header>
-            <p className={`${fira.className}`}>
-                artwork<br />
-            </p>
             <div className="flex justify-center items-center">
                 <div className="grid gap-16 mt-16">
                     <div>
