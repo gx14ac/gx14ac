@@ -6,6 +6,9 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      mini: "350px",
+    },
     extend: {
       backgroundImage: {
         'hack': "url('/assets/test.gif')"
