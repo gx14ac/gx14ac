@@ -1,4 +1,4 @@
-import Header from "./header"
+import Header from "@pages/header"
 import { fira } from "@utils/font"
 import Link from "next/link"
 
