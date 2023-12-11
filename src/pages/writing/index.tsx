@@ -15,14 +15,6 @@ export default function Writing() {
                             nov 25, 2023<br />
                         </p>
                     </div>
-                    <div className="flex-row flex items-center gap-6 justify-between">
-                        <Link href="/writing/udp-hole-punching" className={`${fira.className} text-xl hover:text-gray-500 underline underline-offset-8`} onClick={() => { }}>
-                            wireguard
-                        </Link>
-                        <p className={`${fira.className} text-xs text-gray-400`}>
-                            nov 25, 2023<br />
-                        </p>
-                    </div>
                 </div>
             </div>
         </Header>
