@@ -10,16 +10,16 @@ type ComponentProps = {
 export default function Header({ children }: ComponentProps) {
     const router = useRouter()
     return (
-        <div className="flex justify-start items-start gap-40 mt-16 ml-32">
-            <div className="grid gap-2 mt-6">
+        <div className="md:flex md:justify-start md:items-start md:gap-40 md:mt-16 md:ml-36 mini:ml-4">
+            <div className="md:grid md:gap-4 md:mt-6 sm:mt-10 sm:flex sm:items-center sm:justify-evenly">
                 <Image
                     src="/assets/artwork.png"
-                    className=""
+                    className="mini:invisible md:visible sm:visible"
                     alt="logo"
                     width={100}
                     height={100}
                 />
-                <Link href="/" className={`${fira.className} mt-4 ml-5 hover:text-blue-600`} onClick={() => router.push('/')}>
+                <Link href="/" className={`${fira.className} ml-5 hover:text-blue-600`} onClick={() => router.push('/')}>
                     About
                 </Link>
                 <Link href="/writing" className={`${fira.className} ml-5 hover:text-blue-600`} onClick={() => router.push('/writing')}>
@@ -35,19 +35,9 @@ export default function Header({ children }: ComponentProps) {
                     Improvisation
                 </Link>
             </div>
-            <div className="grid gap-10 mt-8">
-                <p className={`${fira.className} text-4xl mt-2`}>
-                    gx14ac
-                </p>
+            <div className="mt-8">
                 {children}
             </div>
-            <Image
-                src="/assets/about.gif"
-                alt="logo"
-                className="mr-16 fixed top-14 right-0 invisible lg:visible"
-                width={280}
-                height={280}
-            />
         </div >
     )
 }

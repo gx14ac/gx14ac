@@ -1,0 +1,2 @@
+- [] resposive
+- [] cool animation for selected current index

@@ -1,16 +1,12 @@
 import Header from "./header"
 import Image from "next/image"
 import { fira } from "@utils/font"
-import Link from "next/link"
 
 export default function Artwork() {
     return (
         <Header>
-            <p className={`${fira.className}`}>
-                artwork<br />
-            </p>
             <div className="flex justify-center items-center">
-                <div className="grid gap-16 mt-16">
+                <div className="grid gap-14 mt-16">
                     <div>
                         <Image
                             src="/assets/singularity.jpg"
