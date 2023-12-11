@@ -5,9 +5,9 @@ import Link from "next/link"
 export default function Misc() {
     return (
         <Header>
-            <div className="mt-24 sm:ml-14 mini:ml-6">
-                <div className="flex flex-col gap-8">
-                    <div className="flex flex-row items-center gap-6 justify-between">
+            <div className="mt-24 sm:ml-8 mini:ml-6 mini:mr-10">
+                <div className="flex flex-col gap-5">
+                    <div className="flex-row flex items-center gap-6 justify-between">
                         <Link href="/misc/grumble" className={`${fira.className} text-lg hover:text-gray-500 underline underline-offset-8`} onClick={() => { }}>
                             grumble, wasm kernel p2p
                         </Link>
@@ -15,7 +15,7 @@ export default function Misc() {
                             nov 25, 2023<br />
                         </p>
                     </div>
-                    <div className="flex flex-row items-center gap-6 justify-between">
+                    <div className="flex-row flex items-center gap-6 justify-between">
                         <Link href="/misc/new-normal" className={`${fira.className} text-lg hover:text-gray-500 underline underline-offset-8`} onClick={() => { }}>
                             new normal
                         </Link>

@@ -6,7 +6,7 @@ export default function Artwork() {
     return (
         <Header>
             <div className="flex justify-center items-center">
-                <div className="grid gap-16 mt-16">
+                <div className="grid gap-14 mt-16">
                     <div>
                         <Image
                             src="/assets/singularity.jpg"

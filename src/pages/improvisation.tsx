@@ -6,7 +6,7 @@ import OneScene from '@assets/one-scene.mp3';
 export default function Improvisation() {
     return (
         <Header>
-            <div className="grid auto-rows-max gap-12">
+            <div className="grid auto-rows-max gap-12 justify-center">
                 <div className="flex flex-col gap-4">
                     <p className={`${fira.className} text-md text-gray-400`}>
                         title: 'one scene', dec 1, 2023<br />
