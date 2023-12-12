@@ -28,10 +28,13 @@ export default function Header({ children }: ComponentProps) {
                 <Link href="/misc" className={`${fira.className} ml-5 text-lg hover:text-blue-600 mini:text-base`} onClick={() => router.push('/misc')}>
                     Misc
                 </Link>
-                <Link href="/artwork" className={`${fira.className} ml-5 text-lg hover:text-blue-600 mini:text-base`} onClick={() => router.push('/artwork')}>
-                    Artwork
+                <Link href="/artworks" className={`${fira.className} ml-5 text-lg hover:text-blue-600 mini:text-base`} onClick={() => router.push('/artworks')}>
+                    Artworks
                 </Link>
-                <Link href="/improvisation" className={`${fira.className} ml-5 text-lg hover:text-blue-600 mini:text-base`} onClick={() => router.push('improvisation')}>
+                <Link href="/photos" className={`${fira.className} ml-5 text-lg hover:text-blue-600 mini:text-base`} onClick={() => router.push('/photos')}>
+                    Photos
+                </Link>
+                <Link href="/improvisation" className={`${fira.className} ml-5 text-lg hover:text-blue-600 mini:text-base`} onClick={() => router.push('/improvisation')}>
                     Impr
                 </Link>
             </div>
