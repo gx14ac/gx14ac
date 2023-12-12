@@ -1,7 +1,7 @@
+import { ReactNode } from 'react'
 import { Html, Head, Main, NextScript } from 'next/document'
-import Image from "next/image"
 
-export default function Document() {
+export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <Html lang="en">
             <Head>
@@ -13,8 +13,6 @@ export default function Document() {
                 <meta name="theme-color" content="#ffffff" />
             </Head>
             <body className="bg-black">
-                <Main />
-                <NextScript />
             </body>
         </Html>
     )

@@ -13,7 +13,8 @@ const withMDX = require('@next/mdx')({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: false,
+  reactStrictMode: true,
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   webpack(config, options) {
     const { isServer } = options;
     config.module.rules.push({

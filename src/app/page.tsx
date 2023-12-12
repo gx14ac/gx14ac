@@ -1,8 +1,8 @@
-import Header from "./header"
+'use client';
+import Header from "../components/header"
 import { fira } from "@utils/font"
 import Link from "next/link"
 import Image from "next/image"
-
 
 export default function Home() {
   return (

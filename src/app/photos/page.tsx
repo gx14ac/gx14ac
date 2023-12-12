@@ -1,4 +1,4 @@
-import Header from "./header"
+import Header from "../../components/header"
 import Image from "next/image"
 import { fira } from "@utils/font"
 
