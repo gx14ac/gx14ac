@@ -1,5 +1,6 @@
+'use client;'
 import { fira } from "@utils/font";
-import Header from "../../components/header"
+import Header from "@components/header"
 import Impr from '@assets/imp25112023.mp3';
 import OneScene from '@assets/one-scene.mp3';
 import Maenisusumu from '@assets/maenisusumusikanai.mp3';

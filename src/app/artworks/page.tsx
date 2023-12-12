@@ -1,3 +1,4 @@
+'use client;'
 import Header from "../../components/header"
 import Image from "next/image"
 import { fira } from "@utils/font"
