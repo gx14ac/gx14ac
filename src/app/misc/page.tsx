@@ -1,4 +1,4 @@
-'use client;'
+'use client';
 import Header from "components/header"
 import { fira } from "@utils/font"
 import Link from "next/link"
