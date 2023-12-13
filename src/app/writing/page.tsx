@@ -13,7 +13,7 @@ export default function Writing() {
                             udp hole punching
                         </Link>
                         <p className={`${fira.className} text-xs text-gray-400`}>
-                            nov 25, 2023<br />
+                            dec 13, 2023<br />
                         </p>
                     </div>
                 </div>
