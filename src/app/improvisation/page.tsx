@@ -1,4 +1,4 @@
-'use client;'
+'use client';
 import { fira } from "@utils/font";
 import Header from "@components/Header"
 import Impr from '@assets/imp25112023.mp3';
