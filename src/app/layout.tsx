@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
-        <html lang="ja">
+        <html lang="en">
             <head>
                 <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
                 <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />

@@ -1,5 +1,5 @@
 'use client';
-import Header from "components/header"
+import Header from "@components/Header"
 import { fira } from "@utils/font"
 import Link from "next/link"
 

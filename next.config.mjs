@@ -1,11 +1,24 @@
-const withMDX = require('@next/mdx')({
+import nextMDX from "@next/mdx";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import rehypePrism from "@mapbox/rehype-prism";
+import rehypeSlug from "rehype-slug";
+import remarkToc from "remark-toc";
+import remarkBreaks from "remark-breaks";
+
+const withMDX = nextMDX({
   extension: /\.mdx?$/,
   options: {
     // If you use remark-gfm, you'll need to use next.config.mjs
     // as the package is ESM only
     // https://github.com/remarkjs/remark-gfm#install
-    remarkPlugins: [],
-    rehypePlugins: [],
+    remarkPlugins: [
+      remarkGfm,
+      remarkMath,
+      remarkBreaks,
+    ],
+    rehypePlugins: [rehypeKatex, rehypePrism, rehypeSlug],
     // If you use `MDXProvider`, uncomment the following line.
     // providerImportSource: "@mdx-js/react",
   },
@@ -13,8 +26,8 @@ const withMDX = require('@next/mdx')({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   reactStrictMode: true,
-  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   webpack(config, options) {
     const { isServer } = options;
     config.module.rules.push({
@@ -22,10 +35,10 @@ const nextConfig = {
       exclude: config.exclude,
       use: [
         {
-          loader: require.resolve('url-loader'),
+          loader: 'url-loader',
           options: {
             limit: config.inlineImageLimit,
-            fallback: require.resolve('file-loader'),
+            fallback: 'file-loader',
             publicPath: `${config.assetPrefix}/_next/static/images/`,
             outputPath: `${isServer ? '../' : ''}static/images/`,
             name: '[name]-[hash].[ext]',
@@ -39,4 +52,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+export default withMDX(nextConfig);
