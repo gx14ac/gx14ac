@@ -12,7 +12,7 @@ export default function Improvisation() {
             <div className="grid auto-rows-max gap-12 justify-center">
                 <div className="flex flex-col gap-4">
                     <p className={`${fira.className} text-md text-gray-400`}>
-                        title: 'zerotier', dec 10, 2023<br />
+                        title: 'zerotier', dec 14, 2023<br />
                     </p>
                     <div className="flex flex-row gap-4 justify-start items-center">
                         <audio src={Zerotier} controls className="text-xs "></audio>

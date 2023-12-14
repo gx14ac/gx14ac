@@ -17,7 +17,7 @@ export default function Photos() {
                             height={700}
                         />
                         <p className={`${fira.className} mt-2 text-md text-gray-400  underline underline-offset-8`}>
-                            title: 'ok-computer', dec 10, 2023<br />
+                            title: 'ok-computer', dec 14, 2023<br />
                         </p>
                     </div>
                     <div>
