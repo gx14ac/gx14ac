@@ -7,7 +7,7 @@ export default function Photos() {
     return (
         <Header>
             <div className="flex justify-center items-center">
-                <div className="grid gap-14 mt-16">
+                <div className="grid gap-20 mt-16">
                     <div>
                         <Image
                             src="/assets/hackwithyou.jpg"
