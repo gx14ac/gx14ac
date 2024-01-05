@@ -22,6 +22,18 @@ export default function Photos() {
                     </div>
                     <div>
                         <Image
+                            src="/assets/hackwithyou.jpg"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700}
+                        />
+                        <p className={`${fira.className} mt-2 text-md text-gray-400  underline underline-offset-8`}>
+                            title: 'hack with you', dec 14, 2023<br />
+                        </p>
+                    </div>
+                    <div>
+                        <Image
                             src="/assets/ok-computer.jpg"
                             className=""
                             alt="logo"
