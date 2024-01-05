@@ -7,7 +7,67 @@ export default function Photos() {
     return (
         <Header>
             <div className="flex justify-center items-center">
-                <div className="grid gap-14 mt-16">
+                <div className="grid gap-20 mt-16">
+                    <div>
+                        <Image
+                            src="/assets/dead-forest.jpg"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700}
+                        />
+                        <p className={`${fira.className} mt-2 text-md text-gray-400  underline underline-offset-8`}>
+                            title: 'dead-forest', dec 28, 2023<br />
+                        </p>
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/fire.jpg"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700}
+                        />
+                        <p className={`${fira.className} mt-2 text-md text-gray-400  underline underline-offset-8`}>
+                            title: 'fire', dec 21, 2023<br />
+                        </p>
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/outline.jpg"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700}
+                        />
+                        <p className={`${fira.className} mt-2 text-md text-gray-400  underline underline-offset-8`}>
+                            title: 'outline', dec 20, 2023<br />
+                        </p>
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/shadow.jpg"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700}
+                        />
+                        <p className={`${fira.className} mt-2 text-md text-gray-400  underline underline-offset-8`}>
+                            title: 'shadow', dec 20, 2023<br />
+                        </p>
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/boroichi.jpg"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700}
+                        />
+                        <p className={`${fira.className} mt-2 text-md text-gray-400  underline underline-offset-8`}>
+                            title: 'boroichi', dec 15, 2023<br />
+                        </p>
+                    </div>
                     <div>
                         <Image
                             src="/assets/hackwithyou.jpg"
