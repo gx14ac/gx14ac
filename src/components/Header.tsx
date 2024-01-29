@@ -11,7 +11,7 @@ type ComponentProps = {
 export default function Header({ children }: ComponentProps) {
     const router = useRouter()
     return (
-        <div className="md:flex md:justify-start md:items-start md:gap-36 md:mt-32 md:ml-20 lg:ml-40">
+        <div className="md:flex md:justify-start md:items-start md:gap-30 md:mt-32 md:ml-18 lg:ml-20 mini:ml-6">
             <div className="md:grid md:gap-6 md:mt-6 sm:mt-10 sm:flex sm:items-center sm:justify-evenly sm:mr-40">
                 <Image
                     src="/assets/artwork.png"
@@ -39,7 +39,7 @@ export default function Header({ children }: ComponentProps) {
                     Impr
                 </Link>
             </div>
-            <div className="mt-8 mini:mt-16">
+            <div className="mt-8 mini:mt-16 mini:ml-2">
                 {children}
             </div>
         </div >
