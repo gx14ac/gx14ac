@@ -7,7 +7,7 @@ export default function Artworks() {
     return (
         <Header>
             <div className="flex justify-center items-center">
-                <div className="grid grid-cols-2 gap-40 mt-16 mr-20">
+                <div className="md:grid grid-cols-2 gap-28 mt-16 mr-20 sm:grid">
                     <div>
                         <Image
                             src="/assets/flower-of-heart.jpg"
