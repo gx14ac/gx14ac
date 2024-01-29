@@ -7,7 +7,7 @@ export default function Photos() {
     return (
         <Header>
             <div className="flex justify-center items-center">
-                <div className="grid gap-20 mt-16">
+                <div className="grid grid-cols-2 gap-40 mt-16 mr-20">
                     <div>
                         <Image
                             src="/assets/dead-forest.jpg"
