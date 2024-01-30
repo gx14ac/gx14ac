@@ -7,15 +7,22 @@ export default function Photos() {
     return (
         <Header>
             <div className="flex justify-center items-center">
-                <div className="md:grid grid-cols-2 gap-28 mt-16 mr-20 sm:grid">
+                <div className="grid md:grid-cols-2 md:gap-28 mt-16 mr-20 sm:gap-20 sm:ml-7 mini:gap-10 supermini:gap-4">
+                    <div>
+                        <Image
+                            src="/assets/danche.png"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700} />
+                    </div>
                     <div>
                         <Image
                             src="/assets/first-hike17.png"
                             className=""
                             alt="logo"
                             width={700}
-                            height={700}
-                        />
+                            height={700} />
                     </div>
                     <div>
                         <Image
