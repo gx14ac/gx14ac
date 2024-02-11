@@ -7,7 +7,167 @@ export default function Photos() {
     return (
         <Header>
             <div className="flex justify-center items-center">
-                <div className="grid gap-14 mt-16">
+                <div className="grid md:grid-cols-2 md:gap-28 mt-16 mr-20 sm:gap-20 sm:ml-7 mini:gap-10 supermini:gap-4">
+                    <div>
+                        <Image
+                            src="/assets/danche.png"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700} />
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/first-hike17.png"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700} />
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/first-hike16.png"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700}
+                        />
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/first-hike15.png"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700}
+                        />
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/first-hike14.png"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700}
+                        />
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/first-hike12.png"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700}
+                        />
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/first-hike11.png"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700}
+                        />
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/first-hike10.png"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700}
+                        />
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/first-hike8.png"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700}
+                        />
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/first-hike7.png"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700}
+                        />
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/first-hike4.png"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700}
+                        />
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/first-hike2.png"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700}
+                        />
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/first-hike.png"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700}
+                        />
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/dead-forest.jpg"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700}
+                        />
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/fire.jpg"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700}
+                        />
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/outline.jpg"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700}
+                        />
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/shadow.jpg"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700}
+                        />
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/boroichi.jpg"
+                            className=""
+                            alt="logo"
+                            width={700}
+                            height={700}
+                        />
+                    </div>
                     <div>
                         <Image
                             src="/assets/hackwithyou.jpg"
@@ -16,9 +176,6 @@ export default function Photos() {
                             width={700}
                             height={700}
                         />
-                        <p className={`${fira.className} mt-2 text-md text-gray-400  underline underline-offset-8`}>
-                            title: 'hack with you', dec 14, 2023<br />
-                        </p>
                     </div>
                     <div>
                         <Image
@@ -28,9 +185,6 @@ export default function Photos() {
                             width={700}
                             height={700}
                         />
-                        <p className={`${fira.className} mt-2 text-md text-gray-400  underline underline-offset-8`}>
-                            title: 'ok-computer', dec 14, 2023<br />
-                        </p>
                     </div>
                     <div>
                         <Image
@@ -40,9 +194,6 @@ export default function Photos() {
                             width={700}
                             height={700}
                         />
-                        <p className={`${fira.className} mt-2 text-md text-gray-400  underline underline-offset-8`}>
-                            title: 'work-in-pr0gress', aug 25, 2023<br />
-                        </p>
                     </div>
                     <div>
                         <Image
@@ -52,9 +203,6 @@ export default function Photos() {
                             width={800}
                             height={800}
                         />
-                        <p className={`${fira.className} mt-2 text-md text-gray-400  underline underline-offset-8`}>
-                            title: 'shadow-tree', oct 17, 2023<br />
-                        </p>
                     </div>
                     <div>
                         <Image
@@ -64,9 +212,6 @@ export default function Photos() {
                             width={800}
                             height={800}
                         />
-                        <p className={`${fira.className} mt-2 text-md text-gray-400  underline underline-offset-8`}>
-                            title: 'highway-concerto', jul 9, 2022<br />
-                        </p>
                     </div>
                     <div>
                         <Image
@@ -76,9 +221,6 @@ export default function Photos() {
                             width={800}
                             height={800}
                         />
-                        <p className={`${fira.className} mt-2 text-md text-gray-400  underline underline-offset-8`}>
-                            title: 'mentei', jul 9, 2022<br />
-                        </p>
                     </div>
                     <div>
                         <Image
@@ -88,9 +230,51 @@ export default function Photos() {
                             width={800}
                             height={800}
                         />
-                        <p className={`${fira.className} mt-2 text-md text-gray-400  underline underline-offset-8`}>
-                            title: 'quantum-syuto-highway', jul 9, 2022<br />
-                        </p>
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/selfie.png"
+                            className=""
+                            alt="logo"
+                            width={800}
+                            height={800}
+                        />
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/second-hike5.png"
+                            className=""
+                            alt="logo"
+                            width={800}
+                            height={800}
+                        />
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/second-hike4.png"
+                            className=""
+                            alt="logo"
+                            width={800}
+                            height={800}
+                        />
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/second-hike2.png"
+                            className=""
+                            alt="logo"
+                            width={800}
+                            height={800}
+                        />
+                    </div>
+                    <div>
+                        <Image
+                            src="/assets/second-hike.png"
+                            className=""
+                            alt="logo"
+                            width={800}
+                            height={800}
+                        />
                     </div>
                     <div>
                         <Image
@@ -100,9 +284,6 @@ export default function Photos() {
                             width={800}
                             height={800}
                         />
-                        <p className={`${fira.className} mt-2 text-md text-gray-400  underline underline-offset-8`}>
-                            title: 'quatum-eye', jul 9, 2022<br />
-                        </p>
                     </div>
                     <div>
                         <Image
@@ -112,9 +293,6 @@ export default function Photos() {
                             width={800}
                             height={800}
                         />
-                        <p className={`${fira.className} mt-2 text-md text-gray-400  underline underline-offset-8`}>
-                            title: 'syuto-highway', jul 9, 2022<br />
-                        </p>
                     </div>
                 </div>
             </div >
