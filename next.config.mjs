@@ -4,7 +4,6 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import rehypePrism from "@mapbox/rehype-prism";
 import rehypeSlug from "rehype-slug";
-import remarkToc from "remark-toc";
 import remarkBreaks from "remark-breaks";
 
 const withMDX = nextMDX({
