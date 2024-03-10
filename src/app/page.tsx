@@ -14,9 +14,9 @@ export default function Home() {
           </p>
           <p className={`${fira.className} text-md`}>
             development of runetale,<br />
-            interest include wasm, compilier, kernel, security, and<br />
+            interest include wasm, compilier, kernel, and<br />
             p2p mesh network.<br />
-            i often paint and also play bass, guitar, and digital-synthesizer,<br />
+            i often paint and also play bass and guitar.<br />
             so i may upload some of my compositions.<br />
           </p>
           <div className="flex justify-start items-start gap-4">
