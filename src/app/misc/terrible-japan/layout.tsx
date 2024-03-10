@@ -1,10 +1,8 @@
 'use client';
 import { useRouter } from "next/navigation"
 import Header from "@components/Header";
-import Image from "next/image";
 
 export default function MdxLayout({ children }: { children: React.ReactNode }) {
-    const router = useRouter()
     return (
         <Header>
             <div className="ml-4 mr-6 mt-10 mb-6">
