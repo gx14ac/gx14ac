@@ -13,7 +13,7 @@ export default function Writing() {
                             zig os dev
                         </Link>
                         <p className={`${fira.className} text-xs text-gray-400`}>
-                            dec 13, 2023<br />
+                            mar 10, 2024<br />
                         </p>
                     </div>
                 </div>
