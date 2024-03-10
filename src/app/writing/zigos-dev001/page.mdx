@@ -65,10 +65,11 @@ _start:
 
 OSを自作する時によく見るアセンブリだと思う。
 
-アセンブリは本体書きたく言語である。
+アセンブリは本体書きたくない言語である。
 しかしzigの強力なビルドシステムのおかげで
-linkerやboot,memoryレイアウトなどをbuild.zigで指定して実行することで
+linkerスクリプトやbootの処理やmemoryレイアウトなどをbuild.zigで指定して実行することで
 比較的シンプルでわかりやすくzigのプログラムをビルドすることができる。
+**build.zig**はこんな感じ。
 
 ```zig
 const kernel = b.addExecutable(.{
@@ -93,6 +94,7 @@ b.installArtifact(kernel);
 
 linkerスクリプトは基本的なOSを作る時と同じ。
 各セクションのメモリ位置をリンカスクリプトで用意。
+**linker.lds**はこんな感じ。
 
 ``` nasm
 OUTPUT_ARCH( "riscv" )
@@ -274,3 +276,6 @@ export fn kmain() callconv(.C) void {
 ![](/assets/zig-os-dev01-2.png)
 
 ひとまず今日は終わりだ。
+
+プロジェクトはここで進めていく。
+[xv6z](https://github.com/gx14ac/xv6z)
