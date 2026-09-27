@@ -1,13 +1,13 @@
 "use client";
 import { fira } from "@utils/font";
 import Header from "@components/Header";
-import Impr from "@assets/imp25112023.mp3";
-import OneScene from "@assets/one-scene.mp3";
-import Hbtm from "@assets/hbtm.mp3";
-import Zerotier from "@assets/zerotier.mp3";
-import Dosed from "@assets/dosed.mp3";
-import Jaco from "@assets/likejaco.mp3";
-import runetale from "@assets/we-glósóli.mp3";
+const Impr = "/assets/imp25112023.mp3";
+const OneScene = "/assets/one-scene.mp3";
+const Hbtm = "/assets/hbtm.mp3";
+const Zerotier = "/assets/zerotier.mp3";
+const Dosed = "/assets/dosed.mp3";
+const Jaco = "/assets/likejaco.mp3";
+const runetale = "/assets/we-glósóli.mp3";
 
 export default function Improvisation() {
   return (
