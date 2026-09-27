@@ -13,11 +13,12 @@ export default function Home() {
             gx14ac
           </p>
           <p className={`${fira.className} text-md`}>
-            development of runetale,<br />
-            interest include wasm, compilier, kernel, and<br />
-            p2p mesh network.<br />
-            i often paint and also play bass and guitar.<br />
-            so i may upload some of my compositions.<br />
+            i&apos;m shintaro okumura, also known as gx14ac,<br />
+            a programmer.<br />
+            i build runetale, a p2p mesh network,<br />
+            and write most things from scratch in zig.<br />
+            i also paint and play bass and guitar.<br />
+            pragmatic, not dogmatic.<br />
           </p>
           <div className="flex justify-start items-start gap-4">
             <Link href="https://github.com/gx14ac">

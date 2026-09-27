@@ -2,19 +2,19 @@ import MdxLayout from './layout.tsx'
 
 # Zig OS Dev 001
 
-[Zig](https://ziglang.org/)に最近興味を持っている。
-と言ってもZigのファンになって3年ほどになるが、なかなか見る時間がなかった。
-それとWASMだ。僕はWASMバイナリで動くOSをRiscVでテスト的に作ろうと思っている。
-理由はring0で動くWASMバイナリなOSを実装することで昨今のクラウドコンピューティングやコンテナ技術の
-無駄なオーバーヘッドを無くすことができると考えている。
+Lately I've been into [Zig](https://ziglang.org/).
+Well, I've been a fan of Zig for about three years, but I never really had the time to dig into it.
+And then there's WASM. I want to build an experimental OS on RISC-V that runs WASM binaries.
+The reason is that I think an OS running WASM binaries in ring 0 could get rid of
+the wasted overhead in today's cloud computing and container technology.
 
-それとZigを選んだ理由はいくつかある。
-- zigの強力なビルドシステム
-- zigでcをコンパイルできる
-- メモリ管理システムが魅力的
-- 今後のエコシステムを作っていく上でZigは良さそう
+There are a few reasons I chose Zig:
+- Zig's powerful build system
+- Zig can compile C
+- Its approach to memory management is attractive
+- Zig looks like a good foundation for building the ecosystem going forward
 
-それはさておき、まずは **boot.s** を見ていこう
+Anyway, let's start by looking at **boot.s**.
 ```nasm
 // boot.s
 
@@ -63,13 +63,13 @@ _start:
   j 4b
 ```
 
-OSを自作する時によく見るアセンブリだと思う。
+This is the kind of assembly you usually see when writing your own OS.
 
-アセンブリはあまり書きたくない言語である。
-しかしzigの強力なビルドシステムのおかげで
-linkerスクリプトやbootの処理やmemoryレイアウトなどをbuild.zigで指定して実行することで
-比較的シンプルでわかりやすくzigのプログラムをビルドすることができる。
-**build.zig**はこんな感じ。
+Assembly isn't a language I enjoy writing.
+But thanks to Zig's powerful build system,
+you can specify the linker script, the boot code, the memory layout and so on in build.zig,
+and build the Zig program in a relatively simple and readable way.
+Here's what **build.zig** looks like.
 
 ```zig
 const kernel = b.addExecutable(.{
@@ -92,9 +92,9 @@ kernel.addCSourceFiles(&.{"src/mem.S"}, &.{
 b.installArtifact(kernel);
 ```
 
-linkerスクリプトは基本的なOSを作る時と同じ。
-各セクションのメモリ位置をリンカスクリプトで用意。
-**linker.lds**はこんな感じ。
+The linker script is the same as for any basic OS.
+It defines the memory location of each section.
+Here's **linker.lds**.
 
 ``` nasm
 OUTPUT_ARCH( "riscv" )
@@ -149,8 +149,8 @@ SECTIONS
 }
 ```
 
-一通りOSのメモリレイアウトとブートの用意ができたところで、uartを実装しよう。
-RiscV-32bitで実装するのでOpenSBIのNS16550に沿ったドライバーの実装をする。
+Now that the memory layout and boot code are in place, let's implement the UART.
+Since this targets 32-bit RISC-V, I'm writing a driver that follows OpenSBI's NS16550 driver.
 
 ```zig
 // based on the OpenSBI NS16550 driver.
@@ -236,7 +236,7 @@ pub fn println(comptime fmt: []const u8, args: anytype) void {
 }
 ```
 
-あとはエントリポイントである、kernel.zigでuartを初期化すれば良い。
+All that's left is to initialize the UART in the entry point, kernel.zig.
 
 ```zig
 const uart = @import("uart.zig");
@@ -269,13 +269,13 @@ export fn kmain() callconv(.C) void {
 
 ```
 
-実行すると、確認できる。
+Run it, and you can see it working.
 ![](/assets/zig-os-dev01-1.png)
 
-ヒープのメモリアドレスをriscvのobjdumpで確認すると正しいこともわかる。
+Checking the heap memory addresses with the RISC-V objdump confirms they're correct too.
 ![](/assets/zig-os-dev01-2.png)
 
-ひとまず今日は終わりだ。
+That's it for today.
 
-プロジェクトはここで進めていく。
+The project continues here:
 [xv6z](https://github.com/gx14ac/xv6z)
