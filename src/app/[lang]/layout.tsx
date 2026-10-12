@@ -1,17 +1,25 @@
 import { ReactNode } from 'react'
 import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import { isLocale, locales } from '@utils/i18n'
 
-import './globals.css'
+import '../globals.css'
 
 export const metadata: Metadata = {
     title: 'gx14ac',
     description: '',
 }
 
+export const dynamicParams = false
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export function generateStaticParams() {
+    return locales.map((lang) => ({ lang }))
+}
+
+export default function RootLayout({ children, params }: { children: ReactNode; params: { lang: string } }) {
+    if (!isLocale(params.lang)) notFound()
     return (
-        <html lang="en">
+        <html lang={params.lang}>
             <head>
                 <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
                 <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />

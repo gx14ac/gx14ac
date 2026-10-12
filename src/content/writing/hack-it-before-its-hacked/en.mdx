@@ -1,0 +1,177 @@
+# Hack It Before It's Hacked.
+
+Hi, I'm Shintaro Okumura, CEO of Runetale. I'd like to talk a little about why I've bet my life on networking.
+
+When I was in fourth grade, I was obsessed with a manga called *Bloody Monday*. It's the story of a genius hacker who fights the world with a computer.
+
+That's how I got into hacking.
+
+Back then I used tools like "Usamimi Hurricane" and "Nekomanma" to make cheats for online games. I even sold them on GREE and 2channel and made some money.
+
+Looking back, of course, that's nothing to be proud of. But for me at the time, it was a big discovery.
+
+**If you build something with your own skills, there are people who want it. Technology has value, and it can turn into money.**
+
+That's where my programming began.
+
+## Networking: a troublesome, fascinating world
+
+In my second year of high school, my uncle asked me for a favor. He ran a construction company and wanted security cameras in his office that he could watch from his smartphone while he was out.
+
+Today you could probably just buy a network camera and pair it with an app. But back then there was no product around me that worked the way I wanted, so I decided to build it myself.
+
+Using Raspberry Pi 3s and Logicool webcams, I built about eight security cameras. Static IPs, DHCP, SSH, a web interface, a recording program, a viewer for the cameras. I implemented everything I needed, one piece at a time.
+
+![The security cameras I set up one by one, sleeping over at the office](/assets/hack-it-before-its-hacked-1.jpg)
+
+*The security cameras I set up one by one, sleeping over at the office*
+
+The hardest part of all was the network.
+
+To reach the cameras from outside I tried to get a static IP, but applying through the ISP took forever. With no other choice, I even built a system that emailed me every time the global IP address changed.
+
+Why did it have to be this hard just to look at our own cameras?
+
+In the end, the system my younger self built never stopped being unstable. But I still can't forget that experience.
+
+**Why is it so hard just to reach your own computer?**
+
+SSH and IP addresses should be much simpler to deal with.
+
+That was the first time I wanted to change the network itself.
+
+## Meeting WireGuard
+
+At 19, I left university and moved to Tokyo. My mentor, whom I'd met in high school when he was a grad student, had started a company, and I went to work there.
+
+Ethereum wallets, a crypto exchange, a lending service. Building all kinds of software, I learned about applications and running services.
+
+Around 23, I had the chance to work under an engineer who had built tethering technology. He knew networking and low-level systems deeply, and together we explored the problems I had been feeling for years and how to solve them.
+
+Then, out of the blue, an investor from a company I used to work with reached out to me.
+
+"Your idea is interesting. You should start a company."
+
+I think the conversation lasted about three minutes. The investment was settled, and I started a company.
+
+While I kept thinking about what to build, I came across a VPN technology called WireGuard.
+
+Reading the code, I found a sample of UDP hole punching: a technique for connecting computers directly to each other even when they sit behind NAT.
+
+The moment I saw it, I remembered my high school self wrestling with those security cameras.
+
+**This is it. Maybe we can rebuild the network.**
+
+That's what I thought.
+
+And so, development of Runetale began.
+
+## Let's break it ourselves before it gets broken.
+
+To be honest, the next two or three years didn't go well.
+
+Companies were willing to listen. "Interesting technology." "Nice idea." But nothing moved beyond that.
+
+New technology might make much simpler and safer setups possible. Even so, there is huge resistance to changing existing infrastructure.
+
+Of course, changing a company's systems comes with responsibility. Some services can't be stopped, and evaluating new technology carefully is the right thing to do.
+
+Still, there was something I couldn't accept.
+
+**We debate the risk of changing. How much do we debate the risk of not changing?**
+
+In Japan right now, cyberattacks on companies and organizations keep coming. Exploited VPN appliance vulnerabilities, data leaks from web systems, ransomware taking services down. These are already hurting businesses and the people who rely on them.
+
+Meanwhile, the U.S. Department of Defense published its Zero Trust Strategy in 2022 and is moving away from defenses that rely on the traditional network perimeter.
+
+Even organizations at the scale of a nation are changing how they protect their networks.
+
+So what about us?
+
+VPNs, firewalls, bastion servers, complicated routing. And to keep all of it running, we keep adding yet more machinery.
+
+Is that really the network we were aiming for?
+
+"Hacker" doesn't only mean a criminal who breaks things. It also means someone who understands systems deeply, questions conventional wisdom, and rebuilds things better with their own hands.
+
+That possibility of technology was what captivated me as a kid.
+
+**Let's break it ourselves before it gets broken.**
+
+What we break isn't someone else's system. It's the old network assumptions we take for granted.
+
+## The internet was supposed to be freer.
+
+A while ago I visited the Computer History Museum in California.
+
+![The ARPANET network map](/assets/hack-it-before-its-hacked-2.jpg)
+
+*The ARPANET network map*
+
+![](/assets/hack-it-before-its-hacked-3.jpg)
+
+![](/assets/hack-it-before-its-hacked-4.jpg)
+
+![](/assets/hack-it-before-its-hacked-5.jpg)
+
+![Google's first on-prem server](/assets/hack-it-before-its-hacked-6.jpg)
+
+*Google's first on-prem server*
+
+Trace the history of the internet back and you arrive at ARPANET in 1969. In the first host-to-host message between UCLA and the Stanford Research Institute, they tried to send "LOGIN", and only the first two letters, "LO", arrived.
+
+From there grew a world where distant computers talk to each other and share computing power and information.
+
+Today, a single browser gives you every web service in the world.
+
+And yet connecting from your own Mac to your company's server can still take a pile of configuration.
+
+I think there's still a huge opportunity here.
+
+**I want every computer in the world to feel like it's on the same LAN.**
+
+A Mac in Tokyo, a Linux server in the U.S., a GPU in the cloud. Wherever they are, they connect securely to exactly who they need to.
+
+That's what we're building with Runetale.
+
+## What we want to build
+
+Runetale is software that connects distant computers into a private network, using WireGuard, P2P connections, and more.
+
+For example: keep your internal admin panel off the public internet and reachable only from approved devices. Connect on-prem and cloud. Treat a remote dev environment like it's on your LAN.
+
+I want people to get work done more easily while exposing less.
+
+But I don't want to stop at building one convenient VPN.
+
+Technology to distribute local databases. Proximity communication that doesn't depend on any particular ISP. And identity for AI agents, which are about to become major users of the network.
+
+There's so much more I want to do.
+
+In an era where AI agents access systems autonomously, it matters even more not just where a connection goes, but "on whose authority, and to do what." That's a long story, so I'll write about it in detail another time.
+
+I'm not betting my life on Runetale just to make network configuration easier.
+
+**I don't want anyone's freedom to create to be limited by where their computer is, or whose infrastructure they happen to be using.**
+
+I think I'm still solving the same problem my high school self struggled with while trying to connect eight cameras.
+
+I want to build infrastructure, from Japan, that people all over the world use.
+
+If we're going to get hacked anyway, let's hack it ourselves.
+
+Instead of waiting to be broken, break the old assumptions with our own hands and build something new.
+
+That is Runetale's challenge.
+
+If you feel constrained by today's networks, I'd love to talk.
+
+**[hello@runetale.com](mailto:hello@runetale.com)**
+
+---
+
+**RUNETALE**
+
+Where identity becomes connection.
+
+A network for people, machines, and agents to work freely and securely.

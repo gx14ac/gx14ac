@@ -1,10 +1,10 @@
-'use client';
 import Header from "@components/Header"
 import { fira } from "@utils/font"
 import Link from "next/link"
 import Image from "next/image"
+import { dict, type Locale } from "@utils/i18n"
 
-export default function Home() {
+export default function Home({ params }: { params: { lang: Locale } }) {
   return (
     <>
       <Header>
@@ -13,12 +13,9 @@ export default function Home() {
             gx14ac
           </p>
           <p className={`${fira.className} text-md`}>
-            i&apos;m shintaro okumura, also known as gx14ac,<br />
-            a programmer.<br />
-            i build runetale, a p2p mesh network,<br />
-            and write most things from scratch in zig.<br />
-            i also paint and play bass and guitar.<br />
-            pragmatic, not dogmatic.<br />
+            {dict[params.lang].bio.map((line) => (
+              <span key={line}>{line}<br /></span>
+            ))}
           </p>
           <div className="flex justify-start items-start gap-4">
             <Link href="https://github.com/gx14ac">
