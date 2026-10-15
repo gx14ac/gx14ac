@@ -9,8 +9,8 @@ export default async function PostBody({ kind, slug, lang, comments }: { kind: K
     if (!post) notFound()
     const { default: Content } = await import(`../content/${kind}/${slug}/${contentLang(post, lang)}.mdx`)
     return (
-        <Header>
-            <div className="ml-4 mr-6 mt-10 mb-6">
+        <Header wide>
+            <div className="ml-4 mr-6 mt-10 mb-6 md:mx-auto md:max-w-prose">
                 <div className="prose dark:prose-invert text-slate-600 dark:text-slate-400 tracking-wide" style={{ color: 'white' }}>
                     <Content />
                 </div>

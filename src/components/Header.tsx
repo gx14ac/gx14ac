@@ -7,6 +7,8 @@ import { defaultLocale, isLocale, LOCALE_COOKIE, localePath, locales, stripLocal
 
 type ComponentProps = {
     children: React.ReactNode
+    // 本文側を残り幅いっぱいに広げる (記事ページで中央寄せするため)
+    wide?: boolean
 }
 
 const nav = [
@@ -18,7 +20,7 @@ const nav = [
     { href: "/improvisation", label: "Impr" },
 ]
 
-export default function Header({ children }: ComponentProps) {
+export default function Header({ children, wide }: ComponentProps) {
     const pathname = usePathname()
     const seg = pathname.split("/")[1]
     const lang: Locale = isLocale(seg) ? seg : defaultLocale
@@ -60,7 +62,7 @@ export default function Header({ children }: ComponentProps) {
                     ))}
                 </p>
             </div>
-            <div className="mt-8 mini:mt-16 mini:ml-2">
+            <div className={`mt-8 mini:mt-16 mini:ml-2 ${wide ? "md:flex-1 md:min-w-0 md:mr-20" : ""}`}>
                 {children}
             </div>
         </div >
