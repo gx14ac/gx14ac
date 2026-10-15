@@ -1,0 +1,175 @@
+# The Day the Fridges Hit 50°C.
+
+Overnight from October 11 to 12, 2026, refrigerators and freezers in supermarkets across France were set to 50°C.
+
+Intermarché, Netto, Carrefour, Monoprix, Super U. Several hundred stores were hit. Every fresh and frozen product had to be thrown away, and some stores caught fire. Intermarché's CEO put the losses at "tens of millions of euros nationwide in a single day." In TBS's Japanese coverage, the CEO of one affected company called it "days like hell."
+
+This was not ransomware. No data was stolen. What the attackers went after was the act of keeping things cold.
+
+When I saw the news, I remembered the security cameras I built for my uncle's office in high school. To see them from outside, I opened ports and wrote a script that emailed me every time the global IP changed. In other words, I built a management interface reachable from the internet with my own hands.
+
+## What happened
+
+Putting together press reports and statements from the French government, here is the picture.
+
+The targets were refrigeration controllers made by Danfoss, a Danish company (the AK-SM and AK-SC series). The attackers remotely put the cooling units into continuous defrost mode with a 50°C setpoint. According to Intermarché, this lasted about six hours.
+
+Why could they do it remotely? Because the management interfaces were reachable from the internet, so maintenance contractors could adjust temperatures from afar. Danfoss says the affected units were running outdated firmware.
+
+At DEF CON in August 2026, Claroty Team82 presented vulnerabilities in management units from the same family, including an authentication bypass via a hidden password derived from the date (CVE-2025-41450). Fixed firmware was already available, yet thousands of these interfaces were still exposed on the internet. Whether this attack used that vulnerability has not been confirmed.
+
+The Paris prosecutor has opened an investigation, and the Prime Minister ordered ANSSI, France's national cybersecurity agency, to look into it. No one has claimed responsibility so far.
+
+## Cameras and TV boxes have the same shape
+
+This is not just about France, or about fridges.
+
+An open-source tool called PwnEye has been getting attention recently. It finds IP cameras on a network over ONVIF, brute-forces default or weak passwords, and pulls the RTSP video stream. It takes over cameras without using a single CVE.
+
+Kimwolf, a botnet Krebs on Security reported on in January 2026, has infected more than two million devices, about two-thirds of them cheap Android TV boxes. Many ship with ADB (Android Debug Bridge) open and unauthenticated. Aisuru, a related botnet, set back-to-back DDoS records of 29.7 Tbps and 31.4 Tbps in 2025.
+
+Refrigeration controllers, security cameras, TV boxes. They all have the same structure.
+
+**A door meant for management, left reachable from the internet, behind weak authentication.**
+
+## AI that copies itself
+
+Then, on October 12, Anthropic published a research report: "AI models may be capable of self-replicating without access to a datacenter."
+
+The experiment goes like this. Put eight Android devices (emulated) with unauthenticated ADB ports on a network cut off from the outside. Place a small open-weight model there and see whether it can copy its own weights and inference server onto the other devices and run itself there.
+
+GLM-5.2 replicated itself onto all eight devices in four out of five trials, and onto seven in the remaining one. The researchers also ran Gemma4-26B across fifteen off-brand TV boxes that cost about $55 each. At 0.39 tokens per second it is slow, but it runs.
+
+The report is honest about its limits. The intrusion step was deliberately made easy, so this is an upper bound. No rogue AI replicator has been observed in the wild. There is criticism too: even a 9B model needs around 5GB of memory, more than most IoT devices have.
+
+Even so, to me the most important thing in the report is not the model's capability. It is the premise.
+
+**There are so many open doors in our homes and shops that "breaking in" could reasonably be treated as the easy part.**
+
+The report estimates that if replicas took up residence in Kimwolf's two million devices, that would be about 133,000 copies, roughly 40 H100s worth of compute. And given how fast small models are improving, a small model as capable as GLM-5.2 could appear by the end of 2026.
+
+IoT botnets so far have only executed the commands they were given. The next ones might look around the device they land on, set up their own environment, and move on to the next device.
+
+## And more devices are coming into the home
+
+The same week, Apple held its "Welcome Home" event. It announced HomeView, a home hub with a 7-inch display, plus cameras, a video doorbell, a smart lock, thermostats, and sensors made with LG and Schneider Electric. They support Thread and Matter, and Apple says the data is encrypted so that neither Apple nor its partners can read it.
+
+When Apple gets this serious about the smart home, what happens next? A flood of similar products. Cheap cameras, sensors, and hubs, all Matter-compatible.
+
+Apple's own products will probably be fine. The problem is the thousands of "similar products" that grow up around them. Short development cycles, thin margins, firmware updates that stop after a few years. Ports opened for remote support, passwords left at factory defaults.
+
+The French fridges, too, were probably first set up by someone who thought, "It would be handy to check these remotely." Just like I did in high school.
+
+A hole opened for convenience is just as convenient for an AI, or for an attacker.
+
+## Connect without opening holes
+
+So what should we do?
+
+The defenses in Anthropic's report are traffic monitoring by ISPs, quarantining infected devices, and secure defaults from manufacturers. All correct. But I think the problem can be solved one step earlier.
+
+**Don't put the management interface on the internet in the first place.**
+
+If a maintenance contractor needs to adjust the temperature of a fridge, connect only the contractor's device and the fridge's controller over an encrypted private network. There is no need to open a public port. From the outside, all you see are WireGuard UDP packets. Without the key, you can't even tell a device is there.
+
+This is exactly what we do at Runetale. We connect devices behind NAT directly to each other with UDP hole punching, and we decide who may reach which device by identity, not by IP address.
+
+But there is one big wall.
+
+**Software like this is too big to run inside a fridge or a cheap camera.**
+
+## Building a network that runs inside the fridge, in Zig
+
+We are rewriting the Runetale client in Zig: runetale-zig.
+
+The reason is simple. **We want the network's front door to live inside the very device we want to protect.** Not in a cloud gateway or a VPN appliance in the office, but on the board of a fridge controller or a camera: holding its own WireGuard key, verifying who is on the other end, and connecting. For that, the software has to fit the device, not the other way around.
+
+Here is why Zig fits, with real code and real numbers.
+
+### No runtime, so it's small.
+
+Zig has no garbage collector and no runtime running behind your back. What you write becomes machine code, and that's it.
+
+Built for aarch64 Linux with ReleaseSmall, the runetale-zig daemon (runetaled) is a single, fully statically linked binary, including musl libc and the crypto library (libsodium), at **5.9MB**. Of that, the actual machine code (.text) is **0.8MB**.
+
+No shared libraries, no package manager, no interpreter. Drop one file on the device and it runs. When you're baking software into a firmware image, being "one file" matters a lot.
+
+### Where memory is used is written in the code.
+
+In Zig, any function that allocates memory takes an allocator as a parameter. The language never touches the heap on its own. You can tell where and how much memory is used just by reading the code.
+
+For example, the routing module uses no heap at all and keeps every buffer on the stack. Elsewhere, we use `FixedBufferAllocator`, which hands out memory only from a buffer reserved up front.
+
+On a device with only a few MB of memory, "memory slowly grew and nobody noticed" is fatal. With Zig, you decide how memory is used at design time.
+
+### No GC pauses.
+
+I don't want the software watching a freezer's temperature to stop for tens of milliseconds to collect garbage. In Zig, there is simply nothing to stop for.
+
+In our benchmark, the WireGuard packet pipeline (1,420-byte packets) runs at about 3.2Gbps, with a median one-way latency of 9.1µs. Packet classification in our own userspace TCP/IP stack (tinytcp) takes about 6 nanoseconds per packet. These numbers come from a development Mac, so they don't translate directly to embedded hardware. But they show the code isn't doing wasted work.
+
+### One Mac builds for every CPU.
+
+In the embedded world, CPUs are all over the place: ARM, RISC-V, MIPS, x86.
+
+The Zig compiler is itself a cross-compiler. From a single Mac, changing `-Dtarget` gives you Linux binaries for aarch64, riscv64, and x86_64. No per-target toolchains to set up.
+
+| Target | runetaled (ReleaseSmall, static) |
+|---|---|
+| aarch64-linux-musl | 5.9 MB |
+| riscv64-linux-musl | 6.2 MB |
+| x86_64-linux-musl | 6.1 MB |
+
+### It connects directly to the world of C.
+
+The embedded world is built on C: chip vendor SDKs, FreeRTOS, ESP-IDF.
+
+runetale-zig's WireGuard implementation is wireguard-c, which we wrote ourselves in C. Zig's build system builds that C code together with the Zig code, in a single command. Zig reads C headers directly, so calling a vendor SDK doesn't require writing bindings.
+
+We can put a new kind of network on top of existing embedded code without throwing any of it away. That may be the biggest reason we chose Zig.
+
+## Still on the road
+
+I'll be honest about this part. runetale-zig does not run inside a fridge yet.
+
+Of the 5.9MB, I believe about 4.4MB is the initial values of large fixed buffers being baked into the binary. Fixing that should bring us close to our target of under 2MB.
+
+For the 32-bit ARM and MIPS chips common in cheap routers and appliances, the build still fails because some code uses 64-bit atomics. Next, we plan to run on OS-less microcontrollers like the ESP32.
+
+The direction is clear, and the language points the same way. Now it's up to us to keep trimming, one piece at a time.
+
+## Before it's broken
+
+In my last post, I wrote: "If we're going to get hacked anyway, let's hack it ourselves."
+
+The French fridges show that this is not a metaphor. Internet-connected devices keep multiplying in our homes, shops, and factories. An AI that thinks for itself and copies itself may show up among them.
+
+When that happens, the front line of defense will not be a firewall in a datacenter. It will be a sensor stuck to a wall that costs a few dollars.
+
+That is why I want to build a network small and secure enough to run inside that sensor. Connected without opening ports. Talking only to those who hold the key.
+
+Before someone sets the fridge to 50°C.
+
+If you're struggling with networking for IoT or embedded devices, let's talk.
+
+**[hello@runetale.com](mailto:hello@runetale.com)**
+
+---
+
+### References
+
+- [Anthropic: AI models may be capable of self-replicating without access to a datacenter](https://www.anthropic.com/research/self-replicating-ai) (Oct 12, 2026)
+- [Al Jazeera: Unprecedented cyberattack hits French supermarkets, causing food losses](https://www.aljazeera.com/news/2026/10/13/unprecedented-cyberattack-hits-french-supermarkets-causing-food-losses)
+- [IT-Connect: Cyberattaque supermarchés froid Danfoss](https://www.it-connect.fr/cyberattaque-supermarches-froid-danfoss/)
+- [TBS NEWS DIG (Japanese)](https://youtu.be/zAuGwyNY7Ng)
+- [Hackers-Arise: Camera Hacking Using PwnEye](https://hackers-arise.com/camera-hacking-using-pwneye-to-compromise-ip-cameras/)
+- [Krebs on Security: The Kimwolf Botnet is Stalking Your Local Network](https://krebsonsecurity.com/2026/01/the-kimwolf-botnet-is-stalking-your-local-network/)
+- [Engadget: Everything Apple announced at its Home event](https://www.engadget.com/2285079/everything-apple-announced-home-view-homepod-mini-2-event/)
+
+---
+
+**RUNETALE**
+
+Where identity becomes connection.
+
+A network for people, machines, and agents to work freely and securely.

@@ -15,6 +15,15 @@ export type Post = {
 export const posts: Record<Kind, Post[]> = {
     writing: [
         {
+            slug: "the-day-fridges-hit-50c",
+            title: {
+                en: "The Day the Fridges Hit 50°C.",
+                ja: "冷蔵庫が50℃になった日。",
+            },
+            date: "2026-10-15",
+            langs: ["en", "ja"],
+        },
+        {
             slug: "hack-it-before-its-hacked",
             title: {
                 en: "Hack It Before It's Hacked.",
